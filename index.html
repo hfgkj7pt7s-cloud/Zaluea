@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Max Aura Games</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="manual-games">
+
+  <!-- ==========================================
+       FIRST PAGE HEADER (SPLASH STATE NAVIGATION)
+       ========================================== -->
+  <header class="site-header" id="first-page-header">
+    <a href="index.html" class="brand">Max Aura <span>Games</span></a>
+    <div class="search-box">
+      <input type="text" id="game-search-splash" placeholder="Search games...">
+    </div>
+    <nav>
+      <!-- Fixed layout links matching your very first screen setup -->
+      <a href="index.html" class="is-active">Home</a>
+      <a href="proxy.html">Browser</a>
+      <a href="request.html">Request</a>
+    </nav>
+  </header>
+
+  <!-- ==========================================
+       SECOND PAGE HEADER (INSIDE STATE NAVIGATION)
+       ========================================== -->
+  <header class="site-header" id="second-page-header" style="display: none;">
+    <a href="index.html" class="brand">Max Aura <span>Games</span></a>
+    <div class="search-box">
+      <input type="text" id="game-search" placeholder="Search games...">
+    </div>
+    <nav>
+      <!-- Fixed inside links menu structure matching your categories setup page layout -->
+      <a href="index.html" class="is-active">🏠 Hub</a>
+      <a href="categories.html">📂 Categories</a>
+      <a href="request.html">🎮 Request</a>
+      <a href="proxy.html">🌐 Browser</a>
+    </nav>
+  </header>
+
+  <!-- FIRST PAGE COVER CONTENT (Shows only the 2 centered action buttons) -->
+  <main class="hero" id="main-landing-cover" style="text-align: center;">
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
+    <span class="eyebrow">YOU'VE ARRIVED</span>
+    <h1>MAX <em>AURA</em> GAMES</h1>
+    <p class="request-description">A curated arcade of browser games — built for quick play, discovery, and pure fun.</p>
+    
+    <div style="margin-top: 32px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; position: relative; z-index: 20;">
+      <!-- STEP INSIDE button completely free of obstructions -->
+      <a href="#" id="step-inside-action-trigger" class="button" style="margin: 0; cursor: pointer;">STEP INSIDE →</a>
+      
+      <!-- LAUNCH BROWSER button redirects cleanly over to your proxy framework canvas -->
+      <a href="proxy.html" class="button" style="margin: 0; background: var(--blue); box-shadow: 5px 5px 0 var(--pink); cursor: pointer;">LAUNCH BROWSER 🌐</a>
+    </div>
+  </main>
+
+  <!-- SECOND PAGE GAMES GRID CONTENT (Reveals ONLY the list of games seamlessly) -->
+  <section class="games-section" id="hidden-library-block" style="display: none; padding-top: 40px;">
+    <div class="section-heading">
+      <div>
+        <h2>ALL <em>GAMES</em></h2>
+        <p class="game-count" id="game-count">Loading titles...</p>
+      </div>
+    </div>
+    <div class="game-grid" id="game-grid">
+      <!-- Generated dynamically here by script.js -->
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Max Aura Games · Built for play</p>
+  </footer>
+
+  <!-- Native website background engine attachments -->
+  <script src="games.js"></script>
+  <script src="script.js"></script>
+  <script src="search.js"></script>
+  <script src="nav.js"></script>
+
+  <script>
+    // Handles swapping the exact header menus and layouts on click
+    document.getElementById('step-inside-action-trigger').addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      const splashHeader = document.getElementById('first-page-header');
+      const insideHeader = document.getElementById('second-page-header');
+      const coverSplash = document.getElementById('main-landing-cover');
+      const libraryBlock = document.getElementById('hidden-library-block');
+      
+      // 1. Hide the starting splash cover and old menu setup
+      splashHeader.style.display = 'none';
+      coverSplash.style.display = 'none';
+      
+      // 2. Activate the second-page navigation bar view showing proxy and categories
+      insideHeader.style.display = 'flex';
+      
+      // 3. Show only your dynamic active arcade games grid list block
+      libraryBlock.style.display = 'block';
+      
+      // 4. Force view container position back up flush against the fresh header boundary line
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    });
+  </script>
+</body>
+</html>

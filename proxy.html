@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arcade Browser | Max Aura Games</title>
+  <!-- Links your exact original, unaltered styles.css file -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <style>
+    /* Strict layout parameters to keep the layout rigid and prevent scrolling glitches */
+    html, body {
+      margin: 0 !important;
+      padding: 0 !important;
+      height: 100vh !important;
+      overflow: hidden !important;
+      background: #15182b !important;
+    }
+    
+    .browser-page-layout {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Retains your sticky header box constraints exactly as they look on your home page */
+    .header-wrapper-block {
+      width: 100%;
+      background: rgba(21, 24, 43, 0.92);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .browser-page-layout .site-header {
+      position: relative !important;
+      border-bottom: none !important;
+    }
+
+    /* Viewport frame scales right down to the bottom monitor edge */
+    .browser-viewport-frame {
+      flex: 1;
+      width: 100vw;
+      height: calc(100vh - 82px);
+      margin: 0 !important;
+      padding: 0 !important;
+      position: relative;
+      background: #15182b;
+    }
+
+    /* Clean, non-distracting engine placeholder layout matching your theme vibe */
+    .proxy-clean-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #a7aac4;
+      font-family: "Space Grotesk", sans-serif;
+      text-align: center;
+      z-index: 2;
+      padding: 20px;
+    }
+
+    .proxy-clean-placeholder h2 {
+      font-family: "Fredoka", sans-serif;
+      font-size: 24px;
+      margin: 0 0 8px 0;
+      color: #ffffff;
+    }
+
+    .proxy-clean-placeholder p {
+      margin: 0;
+      font-size: 15px;
+      color: #7a7e9d;
+    }
+
+    /* The streaming web view component canvas layer */
+    #shuttle-viewport {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background-color: transparent;
+      position: relative;
+      z-index: 5;
+    }
+  </style>
+</head>
+<body class="browser-page-layout">
+
+  <!-- Your identical site navigation menu header block wrapper layout -->
+  <div class="header-wrapper-block">
+    <header class="site-header">
+      <a href="index.html" class="brand">Max Aura <span>Games</span></a>
+      <div class="search-box">
+        <!-- data-search-bound="1" overrides search.js to secure entry streams completely -->
+        <input type="text" id="proxy-url-input" data-search-bound="1" autocomplete="off" placeholder="Search or type a web address...">
+      </div>
+      <nav>
+        <a href="index.html">🏠 Hub</a>
+        <a href="categories.html">📂 Categories</a>
+        <a href="request.html">🎮 Request</a>
+        <a href="proxy.html" class="is-active">🌐 Browser</a>
+      </nav>
+    </header>
+  </div>
+
+  <!-- Main viewport frame space layout panel -->
+  <main class="browser-viewport-frame">
+    
+    <!-- Clean theme placeholder - disappears instantly when a website is loading -->
+    <div class="proxy-clean-placeholder" id="engine-status-placeholder">
+      <h2>Shuttle Browser Engine Ready</h2>
+      <p>Type a URL or search query in the address bar up top to begin.</p>
+    </div>
+
+    <!-- Active website container frame layer -->
+    <iframe id="shuttle-viewport" src="about:blank" allowfullscreen></iframe>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const urlInput = document.getElementById('proxy-url-input');
+        const viewport = document.getElementById('shuttle-viewport');
+        const statusPlaceholder = document.getElementById('engine-status-placeholder');
+
+        const proxyBase = "https://railway.app";
+
+        function loadRequestedSite() {
+            let targetUrl = urlInput.value.trim();
+            if (!targetUrl) return;
+            
+            if (!targetUrl.startsWith('http://') && !targetUrl.startsWith('https://')) {
+                if (targetUrl.includes('.') && !targetUrl.includes(' ')) {
+                    targetUrl = 'https://' + targetUrl;
+                } else {
+                    targetUrl = 'https://google.com' + encodeURIComponent(targetUrl);
+                }
+            }
+
+            // Instantly clear out the text placeholder and display the web frame
+            if (statusPlaceholder) {
+              statusPlaceholder.style.display = 'none';
+            }
+            viewport.style.backgroundColor = '#ffffff';
+
+            // Route web targets cleanly through your background container server instance on Railway
+            viewport.src = proxyBase + encodeURIComponent(targetUrl);
+        }
+
+        // AGGRESSIVE INTERCEPTION OVERRIDE: Blocks search.js from breaking Enter key capture paths
+        if (urlInput) {
+            urlInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    e.stopImmediatePropagation(); // Prevents outside scripts from stealing the keystroke
+                    loadRequestedSite();
+                    return false;
+                }
+            }, true); // Setting capturing phase to true ensures our hook processes first
+        }
+    });
+  </script>
+</body>
+</html>
