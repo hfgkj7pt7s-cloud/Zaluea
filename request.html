@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request a Game | Max Aura Games</title>
+  <meta name="description" content="Request a game to be added to Max Aura Games.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700;900&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="brand">Max Aura <span>Games</span></a>
+    <nav>
+      <a href="home.html">🏠 Hub</a>
+      <a href="categories.html">📂 Categories</a>
+      <a href="request.html">🎮 Request</a>
+      <a href="about.html">ℹ️ About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="request-section">
+      <div class="request-card">
+        <p class="eyebrow">HELP US GROW</p>
+        <h1>REQUEST A <em>GAME</em></h1>
+        <p class="request-description">
+          🎮 Have a game you'd like to see added to Max Aura Games?
+          Tell us what you'd like to play and we'll take a look at your request.
+        </p>
+        <p class="request-description">
+          💡 You can also share a link or any details that help us find the game.
+        </p>
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSd4O_1v8hJ06CQHvyP_VF0NX0h-2sr9XVnOs7SKbyOX3UQBXw/viewform?usp=dialog"
+          class="button request-button"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          🎮 SUBMIT A GAME REQUEST →
+        </a>
+        <a href="home.html" class="back-link">← Back to Hub</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Max Aura Games · Built for play</p>
+  </footer>
+
+  <script>
+    const yearElement = document.querySelector("#year");
+    if (yearElement) yearElement.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

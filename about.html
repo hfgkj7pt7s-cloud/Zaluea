@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Max Aura Games</title>
+  <meta name="description" content="About Max Aura Games — a curated hub for browser games.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700;900&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="brand">Max Aura <span>Games</span></a>
+    <nav>
+      <a href="home.html">🏠 Hub</a>
+      <a href="categories.html">📂 Categories</a>
+      <a href="request.html">🎮 Request</a>
+      <a href="about.html">ℹ️ About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="about-section">
+      <div class="section-heading">
+        <div>
+          <h2>ABOUT</h2>
+          <p>Explore instant browser games built for quick play and discovery.</p>
+        </div>
+      </div>
+      <p class="about-copy">
+        Disclaimer
+        Max Aura Games is a fan-made, non-commercial collection of browser games shared for entertainment and educational purposes only.
+        We do not own, claim ownership of, or claim authorship of any games, trademarks, characters, artwork, audio, or other content that appears on this site unless explicitly stated otherwise. All rights to those materials belong to their respective owners and copyright holders.
+        This site is not affiliated with, endorsed by, or sponsored by the creators, publishers, or rights holders of any game featured here.
+        Max Aura Games does not sell these games and does not charge users to play them. We do not claim to profit from the games themselves. If any rights holder believes content should be removed, please contact us and we will respond promptly.
+        Use of this website is at your own risk. Games are provided “as is,” and we make no guarantees about availability, accuracy, or uninterrupted access.
+        
+        Max Aura Games is a curated hub for browser-first experiences.
+        Browse by category, or search when you already know the title.
+        Have a game you'd like to see added?
+        <a href="request.html">Send us a game request.</a>
+      </p>
+      <p class="back-row" style="margin-top: 32px;">
+        <a href="home.html" class="back-link">← Back to Hub</a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Max Aura Games · Built for play</p>
+  </footer>
+
+  <script>
+    const yearElement = document.querySelector("#year");
+    if (yearElement) yearElement.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

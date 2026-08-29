@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Categories | Max Aura Games</title>
+  <meta name="description" content="Browse games by category on Max Aura Games.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700;900&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="brand">Max Aura <span>Games</span></a>
+    <div class="search-box">
+      <input id="game-search" type="text" placeholder="Search games..." aria-label="Search games">
+    </div>
+    <nav>
+      <a href="home.html">🏠 Hub</a>
+      <a href="categories.html">📂 Categories</a>
+      <a href="request.html">🎮 Request</a>
+      <a href="about.html">ℹ️ About</a>
+    </nav>
+  </header>
+
+  <main class="hub-main">
+    <section class="hub-intro">
+      <p class="eyebrow">BROWSE BY TYPE</p>
+      <h1>GAME <em>CATEGORIES</em></h1>
+      <p class="hub-subtitle">Choose a category to see the games inside. One more click, one better find.</p>
+    </section>
+
+    <section class="hub-grid category-grid">
+      <a href="category.html?cat=Action" class="hub-card hub-card-pink">
+        <span class="hub-icon">🏃</span>
+        <h2>Action</h2>
+        <p>Fast, intense, and always moving.</p>
+        <span class="hub-arrow">→</span>
+      </a>
+
+      <a href="category.html?cat=Puzzle" class="hub-card hub-card-blue">
+        <span class="hub-icon">🧩</span>
+        <h2>Puzzle</h2>
+        <p>Think, slide, match, and solve.</p>
+        <span class="hub-arrow">→</span>
+      </a>
+
+      <a href="category.html?cat=Adventure" class="hub-card hub-card-gold">
+        <span class="hub-icon">🗺️</span>
+        <h2>Adventure</h2>
+        <p>Explore worlds and classic journeys.</p>
+        <span class="hub-arrow">→</span>
+      </a>
+
+      <a href="category.html?cat=Sports" class="hub-card hub-card-green">
+        <span class="hub-icon">🏆</span>
+        <h2>Sports</h2>
+        <p>Football, basketball, baseball & more.</p>
+        <span class="hub-arrow">→</span>
+      </a>
+
+      <a href="category.html?cat=Strategy" class="hub-card hub-card-blue">
+        <span class="hub-icon">🧠</span>
+        <h2>Strategy</h2>
+        <p>Plan ahead and outsmart the challenge.</p>
+        <span class="hub-arrow">→</span>
+      </a>
+
+      <a href="category.html?cat=Racing" class="hub-card hub-card-gold">
+        <span class="hub-icon">🏎️</span>
+        <h2>Racing</h2>
+        <p>Speed, tracks, and finish lines.</p>
+        <span class="hub-arrow">→</span>
+      </a>
+
+      <a href="category.html?cat=Platformer" class="hub-card hub-card-pink">
+        <span class="hub-icon">🦘</span>
+        <h2>Platformer</h2>
+        <p>Jump, dash, and clear the level.</p>
+        <span class="hub-arrow">→</span>
+      </a>
+
+      <a href="category.html?cat=Survival" class="hub-card hub-card-green">
+        <span class="hub-icon">🌙</span>
+        <h2>Survival</h2>
+        <p>Last as long as you can.</p>
+        <span class="hub-arrow">→</span>
+      </a>
+
+      <a href="category.html?cat=Horror" class="hub-card hub-card-blue">
+        <span class="hub-icon">👻</span>
+        <h2>Horror</h2>
+        <p>Tension, scares, and dark places.</p>
+        <span class="hub-arrow">→</span>
+      </a>
+
+      <a href="category.html?cat=Competition" class="hub-card hub-card-gold">
+        <span class="hub-icon">⚔️</span>
+        <h2>Competition</h2>
+        <p>1v1, multiplayer, and head-to-head.</p>
+        <span class="hub-arrow">→</span>
+      </a>
+
+      <a href="category.html?cat=Other" class="hub-card hub-card-pink">
+        <span class="hub-icon">👾</span>
+        <h2>Other</h2>
+        <p>Everything that doesn’t fit the rest.</p>
+        <span class="hub-arrow">→</span>
+      </a>
+    </section>
+
+    <p class="back-row">
+      <a href="home.html" class="back-link">← Back to Hub</a>
+    </p>
+
+    <div class="ad-slot" aria-hidden="true"></div>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Max Aura Games · Built for play</p>
+  </footer>
+
+  <script>
+    const yearElement = document.querySelector("#year");
+    if (yearElement) yearElement.textContent = new Date().getFullYear();
+  </script>
+  <script src="games.js"></script>
+  <script src="search.js"></script>
+</body>
+</html>

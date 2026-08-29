@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Max Aura Games</title>
+  <meta name="description" content="Browse categories and more on Max Aura Games.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700;900&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="brand">Max Aura <span>Games</span></a>
+    <div class="search-box">
+      <input id="game-search" type="text" placeholder="Search games..." aria-label="Search games">
+    </div>
+    <nav>
+      <a href="home.html">🏠 Hub</a>
+      <a href="categories.html">📂 Categories</a>
+      <a href="request.html">🎮 Request</a>
+      <a href="about.html">ℹ️ About</a>
+    </nav>
+  </header>
+
+  <main class="hub-main">
+    <section class="hub-intro">
+      <p class="eyebrow">MAIN HUB</p>
+      <h1>WHERE DO YOU WANT TO <em>PLAY</em>?</h1>
+      <p class="hub-subtitle">Pick a path below. Search is always available up top if you already know what you want.</p>
+    </section>
+
+    <section class="hub-grid">
+      <a href="categories.html" class="hub-card hub-card-blue">
+        <span class="hub-icon">📂</span>
+        <h2>Categories</h2>
+        <p>Action, Puzzle, Adventure, Sports & more.</p>
+        <span class="hub-arrow">→</span>
+      </a>
+
+      <a href="request.html" class="hub-card hub-card-green">
+        <span class="hub-icon">🎮</span>
+        <h2>Request a Game</h2>
+        <p>Tell us what you want to see added next.</p>
+        <span class="hub-arrow">→</span>
+      </a>
+
+      <a href="about.html" class="hub-card hub-card-pink">
+        <span class="hub-icon">ℹ️</span>
+        <h2>About</h2>
+        <p>What Max Aura Games is all about.</p>
+        <span class="hub-arrow">→</span>
+      </a>
+    </section>
+
+    <!-- Optional ad space placeholder (clean, non-misleading) -->
+    <div class="ad-slot" aria-hidden="true"></div>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Max Aura Games · Built for play</p>
+  </footer>
+
+  <script>
+    const yearElement = document.querySelector("#year");
+    if (yearElement) yearElement.textContent = new Date().getFullYear();
+  </script>
+  <script src="games.js"></script>
+  <script src="search.js"></script>
+</body>
+</html>

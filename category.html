@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Category | Max Aura Games</title>
+  <meta name="description" content="Games by category on Max Aura Games.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700;900&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="manual-games">
+  <header class="site-header">
+    <a href="index.html" class="brand">Max Aura <span>Games</span></a>
+    <div class="search-box">
+      <input id="game-search" type="text" placeholder="Search games..." aria-label="Search games">
+    </div>
+    <nav>
+      <a href="home.html">🏠 Hub</a>
+      <a href="categories.html">📂 Categories</a>
+      <a href="request.html">🎮 Request</a>
+      <a href="about.html">ℹ️ About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="games-section">
+      <div class="section-heading">
+        <div>
+          <h2 id="category-title">CATEGORY</h2>
+          <p class="game-count" id="game-count">Loading…</p>
+        </div>
+        <a href="categories.html" class="button">← Categories</a>
+      </div>
+      <div class="game-grid" id="game-grid"></div>
+    </section>
+    <div class="ad-slot" aria-hidden="true"></div>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Max Aura Games · Built for play</p>
+  </footer>
+
+  <script src="games.js"></script>
+  <script src="script.js"></script>
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const cat = params.get("cat") || "Other";
+      const titleEl = document.getElementById("category-title");
+      if (titleEl) titleEl.textContent = cat.toUpperCase();
+      document.title = cat + " Games | Max Aura Games";
+
+      const all = typeof games !== "undefined" ? games : [];
+      let list;
+
+      if (cat === "Other") {
+        const known = [
+          "Action", "Puzzle", "Adventure", "Sports", "Strategy",
+          "Racing", "Platformer", "Survival", "Horror", "Competition"
+        ];
+        list = all.filter(
+          (g) => g.active !== false && !known.includes(g.category)
+        );
+      } else {
+        list = all.filter(
+          (g) => g.active !== false && g.category === cat
+        );
+      }
+
+      renderGames(list);
+      updateCount(list.length);
+
+      const searchInput = document.querySelector("#game-search");
+      if (searchInput) {
+        searchInput.addEventListener("input", () => {
+          const q = searchInput.value.trim().toLowerCase();
+          const filtered = !q
+            ? list
+            : list.filter((g) =>
+                [g.title, g.category, g.description]
+                  .join(" ")
+                  .toLowerCase()
+                  .includes(q)
+              );
+          renderGames(filtered);
+          updateCount(filtered.length);
+        });
+      }
+    })();
+  </script>
+  <script src="search.js"></script>
+</body>
+</html>
